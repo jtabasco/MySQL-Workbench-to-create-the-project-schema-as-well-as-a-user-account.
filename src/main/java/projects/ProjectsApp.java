@@ -48,10 +48,8 @@ public class ProjectsApp {
 					createProject();
 					break;
 				default:
-					System.out.println("\n"+operation+ " is not valid. Try Again.");
-					break;
-					
-
+					System.out.println("\n"+operation+ " It is not a valid option number. Try Again.");
+					break; 
 				}
 			} catch (Exception e) {
 				System.out.println("\nError: " + e.toString() + " Try Again!!");
