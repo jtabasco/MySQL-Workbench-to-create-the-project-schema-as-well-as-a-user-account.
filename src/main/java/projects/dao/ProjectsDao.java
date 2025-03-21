@@ -21,13 +21,25 @@ import provided.util.DaoBase;
  * Data Access Object (DAO) class for handling project-related database
  * operations.
  * This class extends DaoBase to inherit common database functionality.
- * Implements CRUD operations for projects and manages relationships with
- * materials,
- * steps, and categories.
+ * 
+ * Key responsibilities:
+ * - Implements CRUD operations for projects
+ * - Manages relationships with materials, steps, and categories
+ * - Handles database transactions
+ * - Manages database connections and resources
+ * 
+ * The DAO layer ensures that:
+ * - All database operations are performed efficiently
+ * - Resources are properly managed and released
+ * - Transactions are handled correctly
+ * - Related entities are loaded when needed
  */
 public class ProjectsDao extends DaoBase {
 
-	// Constants for table names in the database
+	/**
+	 * Constants for table names in the database.
+	 * These constants are used to prevent typos and make table name changes easier.
+	 */
 	private static final String CATEGORY_TABLE = "category";
 	private static final String MATERIAL_TABLE = "material";
 	private static final String PROJECT_TABLE = "project";
@@ -36,6 +48,12 @@ public class ProjectsDao extends DaoBase {
 
 	/**
 	 * Inserts a new project into the database.
+	 * This method handles the complete project creation process:
+	 * 1. Prepares the SQL insert statement
+	 * 2. Sets all project parameters
+	 * 3. Executes the insert
+	 * 4. Retrieves the generated ID
+	 * 5. Returns the complete project object
 	 * 
 	 * @param project The Project object containing the project details to be
 	 *                inserted
@@ -85,7 +103,14 @@ public class ProjectsDao extends DaoBase {
 
 	/**
 	 * Retrieves all projects from the database ordered by project name.
-	 * This method does not load related entities (materials, steps, categories).
+	 * This method provides a basic view of projects without loading related
+	 * entities
+	 * to improve performance when only basic project information is needed.
+	 * 
+	 * Implementation details:
+	 * 1. Prepares and executes the SELECT query
+	 * 2. Maps the result set to Project objects
+	 * 3. Returns the list of projects
 	 * 
 	 * @return List of all projects in the database
 	 * @throws DbException If there is an error during the database operation
@@ -120,6 +145,11 @@ public class ProjectsDao extends DaoBase {
 	 * 2. Associated materials
 	 * 3. Associated steps (ordered by step order)
 	 * 4. Associated categories
+	 * 
+	 * Implementation details:
+	 * 1. Uses a transaction to ensure data consistency
+	 * 2. Loads all related entities in a specific order
+	 * 3. Returns an Optional to handle the case when no project is found
 	 * 
 	 * @param projectId The ID of the project to retrieve
 	 * @return Optional containing the project if found, empty Optional if not found
@@ -172,6 +202,11 @@ public class ProjectsDao extends DaoBase {
 	 * Retrieves all materials associated with a specific project.
 	 * This is a helper method used by fetchProjectById to load related materials.
 	 * 
+	 * Implementation details:
+	 * 1. Uses the provided connection to maintain transaction integrity
+	 * 2. Executes a SELECT query with a JOIN to get all materials
+	 * 3. Maps the result set to Material objects
+	 * 
 	 * @param conn      The database connection to use
 	 * @param projectId The ID of the project to fetch materials for
 	 * @return List of materials associated with the project
@@ -194,7 +229,11 @@ public class ProjectsDao extends DaoBase {
 	/**
 	 * Retrieves all steps associated with a specific project ordered by step order.
 	 * This is a helper method used by fetchProjectById to load related steps.
-	 * Steps are returned in the correct sequence based on step_order.
+	 * 
+	 * Implementation details:
+	 * 1. Uses the provided connection to maintain transaction integrity
+	 * 2. Executes a SELECT query with ORDER BY for step order
+	 * 3. Maps the result set to Step objects
 	 * 
 	 * @param conn      The database connection to use
 	 * @param projectId The ID of the project to fetch steps for
@@ -219,7 +258,11 @@ public class ProjectsDao extends DaoBase {
 	 * Retrieves all categories associated with a specific project through the
 	 * project_category join table.
 	 * This is a helper method used by fetchProjectById to load related categories.
-	 * Uses a JOIN operation to connect the category and project_category tables.
+	 * 
+	 * Implementation details:
+	 * 1. Uses the provided connection to maintain transaction integrity
+	 * 2. Executes a SELECT query with JOIN to get all categories
+	 * 3. Maps the result set to Category objects
 	 * 
 	 * @param conn      The database connection to use
 	 * @param projectId The ID of the project to fetch categories for
@@ -241,6 +284,78 @@ public class ProjectsDao extends DaoBase {
 				}
 				return categories;
 			}
+		}
+	}
+
+	/**
+	 * Updates an existing project in the database.
+	 * This method handles the complete project update process:
+	 * 1. Prepares the SQL update statement
+	 * 2. Sets all project parameters
+	 * 3. Executes the update within a transaction
+	 * 4. Returns the updated project object
+	 * 
+	 * @param project The Project object containing the updated details
+	 * @return The updated Project object
+	 * @throws DbException If there is an error during the update
+	 */
+	public boolean modifyProject(Project project) {
+		String sql = "UPDATE " + PROJECT_TABLE + " SET "
+				+ "project_name = ?, "
+				+ "estimated_hours = ?, "
+				+ "actual_hours = ?, "
+				+ "difficulty = ?, "
+				+ "notes = ? "
+				+ "WHERE project_id = ?";
+
+		try (Connection conn = DbConnection.getConnection()) {
+			startTransaction(conn);
+			try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+				setParameter(stmt, 1, project.getProjectName(), String.class);
+				setParameter(stmt, 2, project.getEstimatedHours(), BigDecimal.class);
+				setParameter(stmt, 3, project.getActualHours(), BigDecimal.class);
+				setParameter(stmt, 4, project.getDifficulty(), Integer.class);
+				setParameter(stmt, 5, project.getNotes(), String.class);
+				setParameter(stmt, 6, project.getProjectId(), Integer.class);
+
+				boolean success = stmt.executeUpdate() == 1;
+				commitTransaction(conn);
+				return success;
+			} catch (Exception e) {
+				rollbackTransaction(conn);
+				throw new DbException(e);
+			}
+		} catch (SQLException e) {
+			throw new DbException(e);
+		}
+	}
+
+	/**
+	 * Deletes a project and all its related data from the database.
+	 * This method handles the complete project deletion process:
+	 * 1. Prepares the SQL delete statement
+	 * 2. Executes the delete within a transaction
+	 * 3. Ensures all related data is properly cleaned up
+	 * 
+	 * @param projectId The ID of the project to delete
+	 * @throws DbException If there is an error during deletion
+	 */
+	public boolean deleteProject(Integer projectId) {
+		String sql = "DELETE FROM " + PROJECT_TABLE + " WHERE project_id = ?";
+
+		try (Connection conn = DbConnection.getConnection()) {
+			startTransaction(conn);
+			try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+				setParameter(stmt, 1, projectId, Integer.class);
+				boolean success = stmt.executeUpdate() == 1;
+				commitTransaction(conn);
+				return success;
+			} catch (Exception e) {
+				rollbackTransaction(conn);
+				throw new DbException(e);
+			}
+		} catch (SQLException e) {
+			throw new DbException(e);
 		}
 	}
 }
