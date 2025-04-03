@@ -92,7 +92,7 @@ Joel Tabasco - [jtabasco41@gmail.com](mailto:jtabasco41@gamail.com)
 
 Project Link: [https://github.com/jtabasco/MySQL-java-project-with-menu-for-CRUD](https://github.com/jtabasco/MySQL-java-project-with-menu-for-CRUD)
 
-Video Link: <a href="https://youtu.be/6-hVDLw9tf0" target="_blank">video demostrativo</a>
+Video Link: <a href="https://youtu.be/6-hVDLw9tf0" target="_blank" rel="noopener noreferrer">video demostrativo</a>
 
 ---
 <div align="center">
