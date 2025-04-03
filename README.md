@@ -1,26 +1,41 @@
-# MySQL Java Project
+# 🗄️ MySQL Java Project
 
-A Java project demonstrating MySQL database integration and operations using JDBC.
+[![Java](https://img.shields.io/badge/Java-21-red.svg)](https://www.oracle.com/java/technologies/downloads/#java21)
+[![Maven](https://img.shields.io/badge/Maven-3.x-C71A36.svg)](https://maven.apache.org/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1.svg)](https://www.mysql.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Description
+## 📑 Table of Contents
+- [Description](#-description)
+- [Features](#-features)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Project Structure](#-project-structure)
+- [Dependencies](#-dependencies)
+- [Configuration](#-configuration)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
+
+## 📝 Description
 
 This project showcases the implementation of MySQL database connectivity and operations using Java. It serves as a practical example of working with MySQL databases in a Java environment.
 
-## Features
+## ✨ Features
 
-- MySQL database connectivity using JDBC
-- Java 21 compatibility
-- Maven project structure
-- Database operations implementation
+- 🔌 MySQL database connectivity using JDBC
+- ☕ Java 21 compatibility
+- 📦 Maven project structure
+- 💾 Database operations implementation
 
-## Prerequisites
+## 🔧 Prerequisites
 
 - Java 21 or higher
 - Maven 3.x
 - MySQL Server
 - MySQL Connector/J
 
-## Installation
+## 🚀 Installation
 
 1. Clone the repository:
 ```bash
@@ -37,7 +52,7 @@ cd mysql-java
 mvn clean install
 ```
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 mysql-java/
@@ -50,18 +65,16 @@ mysql-java/
 └── README.md
 ```
 
-## Dependencies
+## 📚 Dependencies
 
 - MySQL Connector/J (version 9.2.0)
 - Java 21
 
-## Configuration
+## ⚙️ Configuration
 
 Make sure to configure your MySQL connection settings in the appropriate configuration file before running the application.
 
-
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -69,12 +82,17 @@ Make sure to configure your MySQL connection settings in the appropriate configu
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
+## 📧 Contact
 
 Joel Tabasco - [jtabasco41@gmail.com](mailto:jtabasco41@gamail.com)
 
 Project Link: [https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account.](https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account.)
+
+---
+<div align="center">
+  <sub>Built with ❤️ by Joel Tabasco</sub>
+</div>
