@@ -77,6 +77,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-[Your Name] - [your.email@example.com]
+Joel Tbasco - [jtabasco41@gmail.com](jtabasco41@gamail.com)
 
 Project Link: [https://github.com/yourusername/mysql-java](https://github.com/yourusername/mysql-java) 
