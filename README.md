@@ -24,7 +24,7 @@ This project showcases the implementation of MySQL database connectivity and ope
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/mysql-java.git
+git clone https://github.com/jtabasco/mysql-java.git
 ```
 
 2. Navigate to the project directory:
@@ -59,9 +59,7 @@ mysql-java/
 
 Make sure to configure your MySQL connection settings in the appropriate configuration file before running the application.
 
-## Usage
 
-[Add specific usage instructions based on your project's functionality]
 
 ## Contributing
 
