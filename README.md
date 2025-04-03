@@ -1,6 +1,6 @@
 # 🗄️ MySQL Java Project
 
-[![Java](https://img.shields.io/badge/Java-21-red.svg)](https://www.oracle.com/java/technologies/downloads/#java21)
+[![java](https://img.shields.io/badge/Java-21-red.svg)](https://www.oracle.com/java/technologies/downloads/#java21)
 [![Maven](https://img.shields.io/badge/Maven-3.x-C71A36.svg)](https://maven.apache.org/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1.svg)](https://www.mysql.com/)
 
