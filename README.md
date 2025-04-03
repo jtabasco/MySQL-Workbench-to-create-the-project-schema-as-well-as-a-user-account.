@@ -99,8 +99,3 @@ Video Link: [video demostrativo](https://youtu.be/6-hVDLw9tf0)
   <sub>Built with ❤️ by Joel Tabasco</sub>
 </div>
 
-<script>
-document.querySelectorAll('a').forEach(link => {
-    link.setAttribute('target', '_blank');
-});
-</script>
