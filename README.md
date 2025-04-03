@@ -3,7 +3,7 @@
 [![Java](https://img.shields.io/badge/Java-21-red.svg)](https://www.oracle.com/java/technologies/downloads/#java21)
 [![Maven](https://img.shields.io/badge/Maven-3.x-C71A36.svg)](https://maven.apache.org/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1.svg)](https://www.mysql.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 
 ## 📑 Table of Contents
 - [Description](#-description)
@@ -91,6 +91,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Joel Tabasco - [jtabasco41@gmail.com](mailto:jtabasco41@gamail.com)
 
 Project Link: [https://github.com/jtabasco/MySQL-java-project-with-menu-for-CRUD](https://github.com/jtabasco/MySQL-java-project-with-menu-for-CRUD)
+
+Video Link: [video demostrativo](https://youtu.be/6-hVDLw9tf0) 
 
 ---
 <div align="center">
