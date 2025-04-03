@@ -90,7 +90,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Joel Tabasco - [jtabasco41@gmail.com](mailto:jtabasco41@gamail.com)
 
-Project Link: [https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account.](https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account.)
+Project Link: [https://github.com/jtabasco/MySQL-java-project-with-menu-for-CRUD](https://github.com/jtabasco/MySQL-java-project-with-menu-for-CRUD)
 
 ---
 <div align="center">
