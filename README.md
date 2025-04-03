@@ -24,7 +24,7 @@ This project showcases the implementation of MySQL database connectivity and ope
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account..git
+git clone https://github.com/jtabasco/MySQL-java-project-with-menu-for-CRUD.git
 ```
 
 2. Navigate to the project directory:
