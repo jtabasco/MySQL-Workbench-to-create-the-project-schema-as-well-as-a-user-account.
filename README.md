@@ -77,6 +77,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-Joel Tbasco - [jtabasco41@gmail.com](jtabasco41@gamail.com)
+Joel Tabasco - [jtabasco41@gmail.com](jtabasco41@gamail.com)
 
-Project Link: [[https://github.com/yourusername/mysql-java](https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account.)]([https://github.com/yourusername/mysql-java](https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account.)) 
+Project Link: [https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account.](https://github.com/jtabasco/MySQL-Workbench-to-create-the-project-schema-as-well-as-a-user-account.)
